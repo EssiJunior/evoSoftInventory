@@ -20,13 +20,13 @@ const SplashContent = () => {
     return (
         <div className='splash'>
             <img src={logo} alt="logo" loading='lazy' />
-            <h2>Manage your tasks easily</h2>
+            <h2>Manage daily product inventory easily</h2>
             <Loader />
         </div>
     )
 }
 
-export default function withSplashScreen(WrappedComponent: React.ComponentType<WithSplashScreenProps>) {
+export default function SplashScreen(WrappedComponent: React.ComponentType<WithSplashScreenProps>) {
     return class extends Component<WithSplashScreenProps, { loading: boolean }> {
         constructor(props: WithSplashScreenProps) {
             super(props);

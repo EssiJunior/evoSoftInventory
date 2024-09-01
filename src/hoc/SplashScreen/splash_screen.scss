@@ -3,7 +3,7 @@
 .splash {
     height: 100vh;
     width: 100%;
-    background-color: #CFE8EF;
+    background-color: #eab78830;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,15 +19,15 @@
     }
 
     h2 {
-        background: 50% 100% / 50% 50% no-repeat radial-gradient(ellipse at bottom, #85C7DE, transparent, transparent);
+        background: 50% 100% / 50% 50% no-repeat radial-gradient(ellipse at bottom, #eab788, transparent, transparent);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         font-size: 25px;
-        letter-spacing: 0.3rem;
+        letter-spacing: 0.2rem;
         margin: 0;
         font-family: "Montserrat", "Source Sans Pro", sans-serif;
-        animation: reveal 3000ms ease-in-out forwards 200ms, glow 2500ms linear infinite 2000ms;
+        animation: reveal 2000ms ease-in-out forwards 200ms, glow 1500ms linear infinite 1000ms;
 
         @media screen and (max-width: 365px) {
             font-size: 11px;
@@ -61,7 +61,7 @@
 
         @keyframes glow {
             40% {
-                text-shadow: 0 0 2px #85C7DE;
+                text-shadow: 0 0 2px #eab788;
             }
         }
     }

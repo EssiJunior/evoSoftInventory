@@ -1,7 +1,7 @@
 // PAGE STYLE
 import './loader.scss'
 
-const Loader = ({size = '54px', marginTop = '2rem', bg='#47abcd'}) => {
+const Loader = ({size = '54px', marginTop = '2rem', bg='#eab788'}) => {
     return (
         <div className="loader" style={{width:size, height:size, marginTop:marginTop }}>
             <div className="bar1" style={{background:bg, boxShadow:`0 0 3px ${bg}`}}></div>

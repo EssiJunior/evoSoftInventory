@@ -1,13 +1,23 @@
-import Loader from "./components/Loader/Loader"
+// # +====================================================================================+ #
+// # |====================================  HappyNess  ===================================| #
+// # |======================    taskify app - intergration test    =======================| #
+// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
+// # +====================================================================================+ #
+
+// REACT IMPORTS
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
+// PAGES
+import Home from "./pages/Home";
 
 function App() {
-
   return (
-    <>
-      <h1 className='font-extrabold text-blue-600 bg-blue-50 text-center'>Tailwind test</h1>
-      <Loader />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
-export default App
+export default App;  
