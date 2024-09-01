@@ -19,7 +19,7 @@
     }
 
     h2 {
-        background: 50% 100% / 50% 50% no-repeat radial-gradient(ellipse at bottom, #eab788, transparent, transparent);
+        background: 50% 100% / 50% 50% no-repeat radial-gradient(ellipse at bottom, var(--primary-color), transparent, transparent);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -61,7 +61,7 @@
 
         @keyframes glow {
             40% {
-                text-shadow: 0 0 2px #eab788;
+                text-shadow: 0 0 2px var(--primary-color);
             }
         }
     }

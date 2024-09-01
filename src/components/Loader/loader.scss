@@ -8,13 +8,13 @@
     div {
         width: 8%;
         height: 24%;
-        background: #eab788;
+        background: var(--primary-color);
         position: absolute;
         left: 50%;
         top: 30%;
         opacity: 0;
         border-radius: 50px;
-        box-shadow: 0 0 3px #eab788;
+        box-shadow: 0 0 3px var(--primary-color);;
         animation: fade458 1s linear infinite;
     }
 
