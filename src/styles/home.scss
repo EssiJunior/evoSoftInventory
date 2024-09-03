@@ -1,9 +1,13 @@
 .home {
     font-family: "Founders Grotesk", monospace, sans-serif !important;
 
+    height: 100vh;
     section.texts {
         // background-color: green;
-        height: 100vh;
+        
+        @media screen and (max-width: 990px) {
+            width: 80%;
+        }
         h1,
         p {
             text-align: left;
@@ -27,6 +31,11 @@
             font-weight: 500;
             line-height: 15.6px;
             font-size: 16px;
+        }
+    }
+    section.illustration{
+        @media screen and (max-width: 990px) {
+            display: none;
         }
     }
 }

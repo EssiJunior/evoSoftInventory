@@ -12,7 +12,7 @@ const Home = () => {
                 <p>Your ultimate solution for managing daily product inventory with ease! Designed for efficiency, our app provides a seamless way to track and organize your stock in real time. With intuitive features, you can effortlessly add, update, and monitor your products, ensuring you never run out of essentials.</p>
                 <Button text='Try it today!'/>
             </section>
-            <section className="w-2/5 illustration h-96">
+            <section className="illustration w-2/5 h-96">
                 <img src={illustration} alt="illustration" className='w-full h-full'/>
             </section>
         </main>
