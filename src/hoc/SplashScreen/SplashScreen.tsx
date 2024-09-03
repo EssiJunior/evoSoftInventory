@@ -23,6 +23,7 @@ const SplashContent = () => {
             <h2>Manage daily product inventory easily</h2>
             <Loader />
         </div>
+        
     )
 }
 
