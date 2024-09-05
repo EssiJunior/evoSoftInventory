@@ -79,4 +79,26 @@ const produits: Produit[] = [
     }
 ];
 
-export { magasins, produits };
+function getListFromLocalStorage(key: string) {
+    const list = localStorage.getItem(key);
+    return list ? JSON.parse(list) : [];
+}
+
+// Function to save a list to localStorage
+function saveListToLocalStorage(key: string, list: []) {
+    localStorage.setItem(key, JSON.stringify(list));
+}
+
+// Function to append an item to the list in localStorage
+function appendToList(key: string, newItem: object) {
+    // Retrieve the existing list
+    const list = getListFromLocalStorage(key);
+
+    // Append the new item
+    list.push(newItem);
+
+    // Save the updated list back to localStorage
+    saveListToLocalStorage(key, list);
+}
+
+export { magasins, produits, getListFromLocalStorage, appendToList };

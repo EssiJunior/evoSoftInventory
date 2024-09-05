@@ -2,7 +2,7 @@ import './button.scss'
 
 interface ButtonProps {
     text: string;
-    onClick?: () => void
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 const Button = ({text, onClick}: ButtonProps) => {
     return (
