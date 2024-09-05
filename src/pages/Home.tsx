@@ -2,7 +2,7 @@
 import SplashScreen from '../hoc/SplashScreen/SplashScreen'
 import '../styles/home.scss'
 import illustration from '../assets/illustration.svg'
-import Button from '../components/Loader/Button/Button'
+import Button from '../components/Button/Button'
 import { Link } from 'react-router-dom'
 const Home = () => {
     return (
