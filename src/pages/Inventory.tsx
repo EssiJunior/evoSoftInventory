@@ -5,9 +5,9 @@ import Modal from '../components/Modal/Modal';
 import '../styles/inventory.scss'
 
 import cross from '../assets/cross-svgrepo-com.svg'
-import edit from '../assets/edit-svgrepo-com.svg'
 
 import { appendToList, getListFromLocalStorage, magasins, produits } from '../utils';
+import SingleInventory from '../components/SingleInventory/SingleInventory';
 const Inventory = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [date, setDate] = useState<Date>(new Date())
@@ -35,39 +35,43 @@ const Inventory = () => {
     const handleStock = (value: string, magasinId: string) => {
         setStock({ ...stock, [magasinId]: parseInt(value) })
     }
+    
     console.table(values)
     return (
         <main className='inventory'>
             <section className="content">
                 <Button text='Add Inventory' onClick={() => setIsOpen(true)} />
                 <div className="divider" />
-                {
-                    values ?
-                        <table className="inventory-list w-4/5 mt-7 overflow-auto">
-                            <tr className='w-full'>
-                                <th>id</th>
-                                <th>date</th>
-                                <th>product ID</th>
-                                <th>stock</th>
-                                <th>Action</th>
-                            </tr>
+                <div className="table-container">
+                    {
+                        values ?
+                            <table className="inventory-list mt-7 ">
+                                <thead>
+                                    <tr className='w-full'>
+                                        <th>id</th>
+                                        <th>date</th>
+                                        <th>product ID</th>
+                                        <th>stock</th>
+                                        <th>Action</th>
+                                    </tr>
 
-                            {
-                                values.map((val: Inventaire, i: number) => {
-                                    return (
-                                        <tr key={i} className='w-full '>
-                                            <td>{i}</td>
-                                            <td>{val.date.substring(0, 10)}</td>
-                                            <td>{val.produitId}</td>
-                                            <td>{JSON.stringify(val.stock)}</td>
-                                            <td className='text-green-600'><img src={edit} alt="edit" className='h-5 aspect-square cursor-pointer hover:scale-110 transition-all ' onClick={() => setIsOpen(true)} /></td>
-                                        </tr>
-                                    )
-                                })
-                            }
-                        </table>
-                        : <div className='h-full w-full flex justify-center items-center'><h1 className='font-semibold font-mono text-2xl'>Inventory is empty</h1></div>
-                }
+                                </thead>
+                                <tbody>
+                                    {
+                                        values.map((val: Inventaire, i: number) => {
+                                            return (
+                                                <SingleInventory key={i} index={i} val={val} />
+                                            )
+                                        })
+                                    }
+
+                                </tbody>
+
+                            </table>
+                            : <div className='h-full w-full flex justify-center items-center'><h1 className='font-semibold font-mono text-2xl'>Inventory is empty</h1></div>
+                    }
+
+                </div>
             </section>
 
             <Modal isOpen={isOpen}>
