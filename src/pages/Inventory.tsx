@@ -37,6 +37,26 @@ const Inventory = () => {
     }
     
     console.table(values)
+
+    const exportToCSV = () => {
+        const table = document.getElementById('data');
+        const rows = Array.from(table.rows);
+        const csvContent = rows.map(row => {
+            const cells = Array.from(row.cells).map(cell => cell.textContent).join(',');
+            return cells;
+        }).join('\n');
+    
+        // Créer un lien pour télécharger le fichier CSV
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data.csv';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+    
     return (
         <main className='inventory'>
             <section className="content">
@@ -45,7 +65,7 @@ const Inventory = () => {
                 <div className="table-container">
                     {
                         values ?
-                            <table className="inventory-list mt-7 ">
+                            <table className="inventory-list mt-7 " id='data'>
                                 <thead>
                                     <tr className='w-full'>
                                         <th>id</th>
@@ -72,6 +92,7 @@ const Inventory = () => {
                     }
 
                 </div>
+                <Button text='Export to CSV' onClick={() => exportToCSV()} />
             </section>
 
             <Modal isOpen={isOpen}>
