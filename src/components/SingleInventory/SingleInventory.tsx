@@ -13,7 +13,7 @@ const SingleInventory = ({ index, val }: SingleInventoryProps) => {
     const [isOpenEdit, setIsOpenEdit] = useState(false)
     const [date, setDate] = useState<Date>(new Date(val.date))
     const [produitId, setProduitId] = useState(val.produitId)
-    const [stock, setStock] = useState<Inventaire[]>([])
+    const [stock, setStock] = useState(val.stock)
 
     const values = getListFromLocalStorage('evoSoftInventory');
 
@@ -33,6 +33,8 @@ const SingleInventory = ({ index, val }: SingleInventoryProps) => {
         values[index] = data
 
         localStorage.setItem('evoSoftInventory', JSON.stringify(values))
+        setIsOpenEdit(false)
+        location.reload();
     }
     return (
         

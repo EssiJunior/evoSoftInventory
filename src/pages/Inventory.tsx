@@ -14,23 +14,36 @@ const Inventory = () => {
     const [produitId, setProduitId] = useState('')
     const [stock, setStock] = useState<Inventaire[]>([])
 
+    const [error, setError] = useState('')
+
     const values = getListFromLocalStorage('evoSoftInventory');
 
     const submit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        const data = {
-            date: date,
-            produitId: produitId,
-            stock: stock
-        };
-        console.log(data);
-        if (!values) {
-            localStorage.setItem('evoSoftInventory', JSON.stringify([data]));
+        if (produitId === '' || stock.length === 0) {
+            if (produitId === '') {
+                setError('Veuillez selectionner un produit')
+            }
+            if (stock.length === 0) {
+                setError('Veillez entrer le stock')
+            }
         } else {
-            appendToList('evoSoftInventory', data)
+            setError('')
+            const data = {
+                date: date,
+                produitId: produitId,
+                stock: stock
+            };
+            console.log(data);
+            if (!values) {
+                localStorage.setItem('evoSoftInventory', JSON.stringify([data]));
+            } else {
+                appendToList('evoSoftInventory', data)
+            }
+            setIsOpen(false)
+            location.reload();
         }
-
     }
     const handleStock = (value: string, magasinId: string) => {
         setStock({ ...stock, [magasinId]: parseInt(value) })
@@ -130,6 +143,9 @@ const Inventory = () => {
                                     </div>
                                 )
                             })
+                        }
+                        {
+                            error !== '' ? <p className='text-red-500 text-center'>{error}</p> : <div></div>
                         }
                         <div>
                             <Button text='Create Inventory' onClick={(e) => submit(e)} />
